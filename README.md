@@ -31,7 +31,40 @@ The Tea Time Store is a app full feature use ReactJS for create web for manager 
 
 ## Key Features
 
+ * User of this app are store employees. They need to be logged in to the application to perform task
+
+ * New User can only signed up inside the application(to guaranteed only store employees can get account)
+
+ * User should be able to update avatar, username and password
+
+ * App needs to have table view with all sales report, showing date, product name, amount and price.
+
+ * User should be able to search list of product name, product type and report from date.
+
+ * App needs to have table view with all inventory, product name, type, remainder, product status (In Stock, Low Stock, Out of Stock)
+
+ * Inventory table can be able to filter out In Stock, Low Stock, Out of Stock important data
+
+ * User should be able to add, delete and remove product from table
+
+ * App needs to have table view with all customer, name, email, register date, total purchase amount.
+
+ * User should be able to search list of customer name, email, register date, total purchase amount.
+
+ * The initial app screen should be dashboard, to display important information for the last 7, 30, 90 days:
+    
+    * a list of product that best seller of each day of the month
+
+    * statistic of Total sale, Number of products sold, Number New Customer, Growth Rate
+
+    * a chart of daily product total sale the most.
+
+    * A chart of product most sale from each type. important metric for store.
+
+ * User should be able to define few application wide settings: product name, type, remainder, product status
  
+ * Dark mode
+
 
 
 ### Library
@@ -89,22 +122,42 @@ npm run dev or yarn run dev
 ```
 
 
-
+<!-- 
 ## Usage
 Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc. -->
 
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+- [ ] Add Changelog
+- [ ] Add tool that important for project.
+- [ ] Create Sign-in page for employee to sign in to application
+- [ ] Create screen app Overview, Sales Report, Inventory, Customer
+- [ ] Create reusable table for use for Sales Report, Inventory, Customer
+- [ ] Create Login and Sign Up page
+- [ ] Implement filter for each page
+- [ ] Create Component on Dashboard
+    - [ ] Card of Total sale, Number of products sold, Number New Customer, Growth Rate
+    - [ ] list of product that best seller of each day of the month
+    - [ ] A chart of daily product total sale the most.
+- [ ] Add data for Sales Report that contain date, product name, amount and price.
+- [ ] Add data for Inventory that contain product name, type, remainder, product status.
+- [ ] Add data for Customer that contain date, product name, amount and price.
+- [ ] Implement Setting screen 
+- [ ] Implement Darkmode
+- [ ] Create Backend for Using on app
+- [ ] Integrated Backend and Frontend
+- [ ] Integrated route between app
+    
 
-## Contributing
+
+<!-- ## Contributing
 State if you are open to contributions and what your requirements are for accepting them.
 
 For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser. -->
 
 ## Authors
  **Supachai Sinkaseam**
@@ -120,5 +173,5 @@ If you have run out of energy or time for your project, put a note at the top of
 
 ## Acknowledgements
 
-
+This part develop as part of DevInit#2 Project for Frontend Developer week 5. Special thank for borntodev team for great opportunity learning and use my skill for awesome project.
 
