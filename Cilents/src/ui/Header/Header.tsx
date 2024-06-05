@@ -1,5 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
+import HeaderMenu from './HeaderMenu'
 
 const StyledHeader = styled.header`
     background-color: var(--color-gray-0);
@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
 export default function Header() {
   return (
     <StyledHeader>
-        Header
+        <HeaderMenu/>
     </StyledHeader>
   )
 }
