@@ -106,6 +106,8 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    transition: background-color 0.3s, border 0.3s;
 }
 
 html{
@@ -114,6 +116,9 @@ html{
 
 body {
     font-family: "Poppins", sans-serif;
+    color: var(--color-gray-700);
+
+    transition: color 0.3s, background-color 0.3s;
     min-height: 100vh;
     line-height: 1.5;
     font-size: 1.6rem;
@@ -156,7 +161,7 @@ button:has(svg) {
 
 a {
     color: inherit;
-    text-align: none;
+    text-decoration: none;
 }
 
 ul {
