@@ -1,9 +1,13 @@
-import React from 'react'
+
+import Row from '../ui/Row'
+import Heading from '../ui/Header/Heading'
 
 export default function Customers() {
   return (
-    <div>
-      Customers
-    </div>
+    <>
+      <Row type="horizontal">
+      <Heading as="h1">All Customers</Heading>
+    </Row>
+    </>
   )
 }
