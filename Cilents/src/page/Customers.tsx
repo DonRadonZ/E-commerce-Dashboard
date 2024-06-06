@@ -1,6 +1,5 @@
-
-import Row from '../ui/Row'
-import Heading from '../ui/Header/Heading'
+import Row from '../ui/Row';
+import Heading from '../Components/layout/Header/Heading';
 
 export default function Customers() {
   return (
