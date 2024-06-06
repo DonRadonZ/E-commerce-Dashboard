@@ -7,7 +7,7 @@ import SalesReport from "./page/SalesReport";
 import Customers from "./page/Customers";
 
 
-import AppLayout from "./ui/AppLayout";
+import AppLayout from "./Components/layout/AppLayout";
 import GlobalStyles from "./styles/GlobalStyles";
 
 export default function App() {
