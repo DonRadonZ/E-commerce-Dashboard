@@ -24,6 +24,8 @@ interface SelectProps {
     options: Array<{value: string; label: string;}>
     value: string;
     onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+
+    type?: "white";
 }
 
 export default function Select({options,value, onChange, ...props}: SelectProps) {

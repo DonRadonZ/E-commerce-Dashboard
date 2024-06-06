@@ -15,6 +15,9 @@ export default function DashboardLayout() {
             <div>Sale</div>
             <div>New Customers</div>
             <div>Growth Rate</div>
+            <div>Top Sale</div>
+            <div>Most buy</div>
+            <div>Graph buy</div>
         </StyledDashboardLayout>
     )
 }
