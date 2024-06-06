@@ -1,9 +1,9 @@
 import DashboardLayout from "../feature/Dashboard/DashboardLayout"
-import Heading from "../ui/Header/Heading"
+import Heading from "../Components/layout/Header/Heading"
 
 
 
-import Row from "../ui/Row"
+import Row from "../Components/layout/Row"
 
 
 

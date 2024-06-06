@@ -1,7 +1,7 @@
 
 
-import Heading from '../ui/Header/Heading'
-import Row from '../ui/Row'
+import Heading from '../Components/layout/Header/Heading'
+import Row from '../Components/layout/Row'
 
 export default function Inventory() {
   return (
