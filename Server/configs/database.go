@@ -11,8 +11,7 @@ import (
 )
 
 func ConnectDB() *mongo.Client {
-	connectionURI := "mongodb://127.0.0.1:27017"
-	client, err := mongo.NewClient(options.Client().ApplyURI(connectionURI))
+	client, err := mongo.NewClient(options.Client().ApplyURI(EnvMongoURI()))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -23,7 +22,6 @@ func ConnectDB() *mongo.Client {
 		log.Fatal(err)
 	}
 
-	defer client.Disconnect(ctx)
 
 	err = client.Ping(ctx, nil)
 	if err != nil{

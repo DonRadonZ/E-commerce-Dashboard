@@ -10,6 +10,7 @@ import (
 	"gitlab.com/supachai27102000/e-commerce-dashboard/configs"
 	"gitlab.com/supachai27102000/e-commerce-dashboard/models"
 	"gitlab.com/supachai27102000/e-commerce-dashboard/responses"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -45,4 +46,20 @@ func AddInventory(c *fiber.Ctx) error {
 	}
 
 	return c.Status(http.StatusCreated).JSON(responses.InventoryResponse{Status: http.StatusCreated, Message: "success", Data: &fiber.Map{"data": result}})
+}
+
+func GetAInventory(c *fiber.Ctx) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	inventoryId := c.Params("inventoryId")
+	var inventory models.Inventory
+	defer cancel()
+
+	objId, _ := primitive.ObjectIDFromHex(inventoryId)
+
+	err := inventoryCollection.FindOne(ctx, bson.M{"id": objId}).Decode(&inventory)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(responses.InventoryResponse{Status: http.StatusInternalServerError, Message: "error", Data: &fiber.Map{"data":err.Error()}})
+	}
+
+	return c.Status(http.StatusOK).JSON(responses.InventoryResponse{Status: http.StatusOK, Message: "success", Data: &fiber.Map{"data": inventory}})
 }
