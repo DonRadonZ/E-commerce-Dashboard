@@ -4,6 +4,7 @@ import Heading from "../Components/layout/Header/Heading"
 
 
 import Row from "../Components/layout/Row"
+import DashboardFilter from "../feature/Dashboard/DashboardFilter"
 
 
 
@@ -12,6 +13,7 @@ export default function Dashboard() {
     <>
     <Row type="horizontal">
       <Heading as="h1">Dashboard</Heading>
+      <DashboardFilter/>
     </Row>
     <DashboardLayout />
     </>

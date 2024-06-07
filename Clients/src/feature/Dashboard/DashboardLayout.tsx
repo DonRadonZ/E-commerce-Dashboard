@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Stats from "./Stats";
 
 const StyledDashboardLayout = styled.div`
     display: grid;
@@ -11,10 +12,7 @@ export default function DashboardLayout() {
     
     return (
         <StyledDashboardLayout>
-            <div>Total Sales</div>
-            <div>Sale</div>
-            <div>New Customers</div>
-            <div>Growth Rate</div>
+            <Stats/>
             <div>Top Sale</div>
             <div>Most buy</div>
             <div>Graph buy</div>
