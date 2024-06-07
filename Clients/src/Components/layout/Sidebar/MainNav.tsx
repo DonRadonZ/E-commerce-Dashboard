@@ -1,3 +1,4 @@
+import { FiCoffee } from 'react-icons/fi';
 import { HiOutlineCube, HiOutlineHome, HiOutlinePresentationChartLine, HiOutlineUserGroup } from 'react-icons/hi2';
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
@@ -61,7 +62,13 @@ export default function MainNav() {
                 <HiOutlinePresentationChartLine />
                     <span>Sales Report</span>
                 </StyledNavLink>
-            </li>
+              </li>
+              <li>
+                  <StyledNavLink to="/product">
+                      <FiCoffee />
+                      <span>Product</span>
+                  </StyledNavLink>
+              </li>
             <li>
                 <StyledNavLink to="/inventory">
                 <HiOutlineCube />

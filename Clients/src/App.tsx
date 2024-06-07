@@ -9,6 +9,7 @@ import Customers from "./page/Customers";
 
 import AppLayout from "./Components/layout/AppLayout";
 import GlobalStyles from "./styles/GlobalStyles";
+import Product from "./page/Product";
 
 export default function App() {
   return (
@@ -21,7 +22,8 @@ export default function App() {
       }>
       <Route index element={<Navigate replace to="dashboard"/>}/>
       <Route path="dashboard" element ={<Dashboard/>}/>
-      <Route path="salesreport" element={<SalesReport/>}/>
+            <Route path="salesreport" element={<SalesReport />} />
+            <Route path="product" element={<Product/>} />
       <Route path="inventory" element={<Inventory/>}/>
       <Route path="customer" element={<Customers/>}/>
       </Route>
