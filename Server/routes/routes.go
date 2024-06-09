@@ -15,5 +15,15 @@ func UserRoutes(app *fiber.App) {
 	app.Delete("/inventory/:inventoryId", controllers.DeleteAInventory)
 
 	app.Get("/inventories", controllers.GetAllInventories)
+
+	//customer part
+
+	app.Patch("/customers/:customerId", controllers.EditACustomer)
+
+	app.Delete("/customer/:customerId", controllers.DeleteACustomer)
+
+	app.Get("/customers", controllers.GetAllCustomer)
+
+	//product part
 	
 }
