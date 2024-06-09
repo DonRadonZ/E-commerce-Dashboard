@@ -1,8 +1,15 @@
-import React from 'react'
+
+import Spinner from '../../Components/UI/Spinner/Spinner';
 import Table from '../../Components/UI/Table/Table'
 import Pagination from '../../Components/utils/Pagination'
 
+import useCustomers from '../../hooks/Customers/useCustomers';
+
 export default function CustomerTable({count}: {count: number}) {
+  const {isPending, customer} = useCustomers();
+
+  if(isPending) return <Spinner/>
+
   return (
     <Table columns="2.4fr 2.4fr 1.4fr 1.2fr 3.2rem">
         <Table.Header>
