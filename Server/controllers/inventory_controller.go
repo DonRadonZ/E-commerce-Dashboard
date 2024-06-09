@@ -24,11 +24,11 @@ func AddInventory(c *fiber.Ctx) error {
 	defer cancel()
 
 	if err := c.BodyParser(&inventory); err != nil {
-		return c.Status(http.StatusBadRequest).JSON(responses.Response{Status: http.StatusBadRequest, Message: "error", Data: &fiber.Map{"data": err.Error()}})
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{"data": err.Error()})
 	}
 
 	if validationErr := inventoryvalidate.Struct(&inventory); validationErr != nil {
-		return c.Status(http.StatusBadRequest).JSON(responses.Response{Status: http.StatusBadRequest, Message: "error", Data: &fiber.Map{"data": validationErr.Error()}})
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{"data": validationErr.Error()})
 	}
 
 	newItem := models.Inventory{
@@ -36,7 +36,7 @@ func AddInventory(c *fiber.Ctx) error {
 		Inventory_name: inventory.Inventory_name,
 		Category: inventory.Category,
 		Remainder: inventory.Remainder,
-		Status: inventory.Status,
+		
 	}
 
 	result, err := inventoryCollection.InsertOne(ctx, newItem)
@@ -45,7 +45,7 @@ func AddInventory(c *fiber.Ctx) error {
 		return c.Status(http.StatusInternalServerError).JSON(responses.Response{Status: fiber.StatusInternalServerError, Message: "error", Data: &fiber.Map{"data": err.Error()}})
 	}
 
-	return c.Status(http.StatusCreated).JSON(responses.Response{Status: http.StatusCreated, Message: "success", Data: &fiber.Map{"data": result}})
+	return c.Status(http.StatusCreated).JSON(fiber.Map{"data": result})
 }
 
 func GetAInventory(c *fiber.Ctx) error {
@@ -80,7 +80,7 @@ func EditAInventory(c * fiber.Ctx) error {
 		return c.Status(http.StatusBadRequest).JSON(responses.Response{Status: http.StatusBadRequest, Message: "error", Data: &fiber.Map{"data": validationErr.Error()}})
 	}
 
-	update := bson.M{"Inventory_name": inventory.Inventory_name, "category": inventory.Category, "remainder": inventory.Remainder, "status": inventory.Status}
+	update := bson.M{"Inventory_name": inventory.Inventory_name, "category": inventory.Category, "remainder": inventory.Remainder}
 
 	result, err := inventoryCollection.UpdateOne(ctx, bson.M{"id": objId}, bson.M{"$set": update})
 
@@ -140,12 +140,12 @@ func GetAllInventories(c *fiber.Ctx) error {
 		var singleInventory models.Inventory
 		if err = results.Decode(&singleInventory); err != nil {
 			return c.Status(http.StatusNotFound).JSON(responses.Response{Status: http.StatusNotFound, Message: "error", Data: &fiber.Map{"data": err.Error()}})
+			
 		}
 
 		inventories = append(inventories, singleInventory)
 	}
-	return c.Status(http.StatusOK).JSON(
-		responses.Response{Status: http.StatusOK, Message: "success", Data: &fiber.Map{"data": inventories}},
+	return c.Status(http.StatusOK).JSON(fiber.Map{"data": inventories},
 	)	
 }
 
