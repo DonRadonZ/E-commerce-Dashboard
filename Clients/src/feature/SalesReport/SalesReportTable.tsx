@@ -4,12 +4,13 @@ import Pagination from '../../Components/utils/Pagination'
 
 export default function SalesReportTable({count}) {
   return (
-    <Table columns="2.4fr 2.4fr 1.4fr 1.2fr 3.2rem">
+    <Table columns="0.4fr 1.4fr 2fr 1.2fr 1.4fr 1.2fr ">
         <Table.Header>
-            <div>Registeration Date</div>
-            <div>Name</div>
-            <div>E-mail</div>
-            <div>Total Buy</div>
+            <div></div>
+            <div>Menu</div>
+            <div>Category</div>
+            <div>Amount Sale</div>
+            <div>Circulation</div>
         </Table.Header>
 
         <Table.Footer>
