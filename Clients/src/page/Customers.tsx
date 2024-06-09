@@ -4,6 +4,7 @@ import CustomerTable from '../feature/Customer/CustomerTable';
 
 
 export default function Customers() {
+  
   return (
     <>
       <Row type="horizontal">
