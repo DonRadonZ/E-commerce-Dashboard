@@ -6,16 +6,16 @@ function useInventory() {
     const {InventoryId} = useParams();
 
     const {
-        isLoading,
+        isPending,
         data: inventory,
         error
     } = useQuery({
-        queryKey: ["inventory", InventoryId],
+        queryKey: ["inventories", InventoryId],
         queryFn: () => getInventories(InventoryId),
         retry: false,
     });
     
-    return {isLoading, error, inventory}
+    return {isPending, error, inventory}
 }
 
 export default useInventory
