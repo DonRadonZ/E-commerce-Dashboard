@@ -1,7 +1,7 @@
 package models
 
 type Product struct{
-	Photo string `json:"product_photo,omitempty" valiadte:"required"`
+	Product_Photo string `json:"product_photo,omitempty" valiadte:"required"`
 	Product_Name string `json:"product_name,omitempty" valiadte:"required"`
 	Price float64 `json:"price,omitempty" valiadte:"required"`
 	Discount float64 `json:"discount,omitempty" valiadte:"required"`
