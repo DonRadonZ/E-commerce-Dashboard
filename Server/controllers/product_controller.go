@@ -41,7 +41,7 @@ func AddProduct(c *fiber.Ctx) error {
 		return c.Status(http.StatusInternalServerError).JSON(&fiber.Map{"error": "Failed to save photo"})
 	}
 
-	imageUrl := fmt.Sprintf("http://localhost:3000/images/%s", file.Filename)
+	imageUrl := fmt.Sprintf("http://localhost:3000/products/%s", file.Filename)
 
 	product.Product_Photo = filePath
 

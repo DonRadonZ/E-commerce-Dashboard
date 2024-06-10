@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import { PAGE_SIZE } from "../../utils/constant";
-import { HiChevronLeft } from "react-icons/hi2";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
 const StyledPagination = styled.div`
     width: 100%;
@@ -101,7 +101,8 @@ export default function Pagination({ count }: PaginationProps) {
                 </PaginationButton>
 
                 <PaginationButton onClick={nextPage} disabled={currentPage === pageCount}>
-                    <HiChevronLeft/> <span>Next</span>
+                    <span>Next</span>
+                    <HiChevronRight/> 
                 </PaginationButton>
                 
             </Buttons>

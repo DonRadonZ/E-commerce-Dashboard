@@ -1,21 +1,38 @@
-import React from 'react'
 import Table from '../../Components/UI/Table/Table'
-import Pagination from '../../Components/utils/Pagination'
+import Spinner from '../../Components/UI/Spinner/Spinner';
+import useProducts from '../../hooks/Products/useProducts';
+import SalesReportRow from './SalesReportRow';
 
-export default function SalesReportTable({count}) {
+interface IProduct {
+  id: string;
+  product_photo: string;
+  product_name: string;
+  product_category: string;
+  amount_sale: number;
+    circulation: number;
+}
+
+
+export default function SalesReportTable() {
+  const {isPending, data} = useProducts();
+
+    if(isPending) return <Spinner/>
+    
+
+    const products: IProduct[] = data?.products || [];
+
   return (
-    <Table columns="0.4fr 1.4fr 2fr 1.2fr 1.4fr 1.2fr ">
+    <Table columns=" 2.4fr 2fr 1.2fr 1.4fr 1.2fr ">
         <Table.Header>
-            <div></div>
+            {/* <div></div> */}
             <div>Menu</div>
             <div>Category</div>
             <div>Amount Sale</div>
             <div>Circulation</div>
         </Table.Header>
-
-        <Table.Footer>
-            <Pagination count={count}/>
-        </Table.Footer>
+          {products.map((product: IProduct) => 
+                (<SalesReportRow products={product} key={product.id}/>)
+                )}
     </Table>
   )
 }

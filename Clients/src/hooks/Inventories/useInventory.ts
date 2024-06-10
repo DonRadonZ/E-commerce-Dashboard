@@ -7,15 +7,15 @@ function useInventory() {
 
     const {
         isPending,
-        data: inventory,
+        data,
         error
     } = useQuery({
-        queryKey: ["inventories", InventoryId],
-        queryFn: () => getInventories(InventoryId),
+        queryKey: ["inventory", InventoryId],
+        queryFn: () => getInventories(),
         retry: false,
     });
     
-    return {isPending, error, inventory}
+    return {isPending, error, data}
 }
 
 export default useInventory

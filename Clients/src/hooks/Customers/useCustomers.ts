@@ -4,19 +4,20 @@ import { useQuery } from "@tanstack/react-query";
 import { getCustomers } from "../../service/apiCustomer";
 
 function useCustomers() {
+    
     const {CustomerId} = useParams();
 
     const {
         isPending,
-        data: customer,
+        data,
         error
     } = useQuery({
         queryKey: ["customer", CustomerId],
-        queryFn: () => getCustomers(CustomerId),
+        queryFn: () => getCustomers(),
         retry: false,
     })
 
-    return {isPending, customer, error}
+    return {isPending, data, error}
 }
 
 export default useCustomers

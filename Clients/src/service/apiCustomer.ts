@@ -3,13 +3,13 @@ import axios from "axios";
 const ENDPOINT = "http://localhost:3000";
 
 export async function getCustomers(){
-    const customers = await axios.get(`${ENDPOINT}/customers`)
-    .then((res) => {console.log(res);},
+    const customer = await axios.get(`${ENDPOINT}/customers`)
+    .then((res) => res.data,
     (error) => {
         console.log(error);
     });
 
-    return {customers}
+    return {customer}
 }
 
 export async function updateCustomer(){
