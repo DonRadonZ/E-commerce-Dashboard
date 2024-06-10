@@ -145,7 +145,6 @@ func GetAllInventories(c *fiber.Ctx) error {
 
 		inventories = append(inventories, singleInventory)
 	}
-	return c.Status(http.StatusOK).JSON(fiber.Map{"data": inventories},
-	)	
+	return c.Status(http.StatusOK).JSON(inventories)	
 }
 

@@ -127,7 +127,5 @@ func GetAllCustomer(c *fiber.Ctx) error {
 
 		customers = append(customers, singleCustomer)
 	}
-		return c.Status(http.StatusOK).JSON(
-		responses.Response{Status: http.StatusOK, Message: "success", Data: &fiber.Map{"data": customers}},
-	)	
+		return c.Status(http.StatusOK).JSON(customers)	
 }

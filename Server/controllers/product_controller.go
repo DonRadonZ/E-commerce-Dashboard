@@ -36,16 +36,19 @@ func AddProduct(c *fiber.Ctx) error {
 	}
 
 	filePath := fmt.Sprintf("./uploads/%s", file.Filename)
+
 	if err := c.SaveFile(file, filePath); err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(&fiber.Map{"error": "Failed to save photo"})
 	}
+
+	imageUrl := fmt.Sprintf("http://localhost:3000/images/%s", file.Filename)
 
 	product.Product_Photo = filePath
 
 
 	newProduct := models.Product{
 		Product_Id: primitive.NewObjectID(),
-		Product_Photo: product.Product_Photo,
+		Product_Photo: imageUrl,
 		Product_Category: product.Product_Category,
 		Product_Name: product.Product_Name,
 		Price: product.Price,
@@ -169,5 +172,5 @@ func GetAllProducts(c *fiber.Ctx) error{
 
 		products = append(products, singleProduct)
 	}
-	return c.Status(http.StatusOK).JSON(&fiber.Map{"data": products})
+	return c.Status(http.StatusOK).JSON(products)
 }
