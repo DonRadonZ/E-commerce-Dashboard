@@ -112,17 +112,17 @@ const ChartBox = styled.div`
       category: "Beverage",
 
       value: 200,
-      color: "#ef4444",
+      color: "#84cc16",
     },
     {
       category: "Confectionery",
       value: 500,
-      color: "#f97316",
+      color: "#65a30d",
     },
     {
       category: "Dessert",
       value: 800,
-      color: "#eab308",
+      color: "#4d7c0f",
     },
   ]
 
