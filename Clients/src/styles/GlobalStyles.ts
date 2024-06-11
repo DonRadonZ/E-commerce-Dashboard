@@ -88,6 +88,7 @@ const GlobalStyles = createGlobalStyle`
     --border-radius-lg: 9px; 
 
     /* Cyan */
+    --color-brand-50: #ecfeff;
     --color-brand-100: #cffafe;
     --color-brand-200: #a5f3fc;
     --color-brand-300: #67e8f9;

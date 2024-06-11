@@ -1,6 +1,7 @@
 import Row from '../Components/layout/Row';
 import Heading from '../Components/layout/Header/Heading';
 import CustomerTable from '../feature/Customer/CustomerTable';
+import Input from '../Components/Form/Input';
 
 
 export default function Customers() {
@@ -9,7 +10,7 @@ export default function Customers() {
     <>
       <Row type="horizontal">
         <Heading as="h1">All Customers</Heading>
-        
+        <Input/>
     </Row>
     <Row>
       <CustomerTable count={undefined}/>
