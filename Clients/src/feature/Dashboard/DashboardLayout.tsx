@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import Stats from "./Stats";
+import useProducts from "../../hooks/Products/useProducts";
+import Spinner from "../../Components/UI/Spinner/Spinner";
+import SalesChart from "./SalesChart";
+import DashboardTopBuy from "./DashboardTopBuy";
+import TypeBuyChart from "../Customer/TypeBuyChart";
 
 const StyledDashboardLayout = styled.div`
     display: grid;
@@ -9,13 +14,16 @@ const StyledDashboardLayout = styled.div`
 `
 
 export default function DashboardLayout() {
-    
+    const {data: products, isPending: isPending1} = useProducts();
+
+    if(isPending1) return <Spinner/>
+
     return (
         <StyledDashboardLayout>
             <Stats/>
-            <div>Top Sale</div>
-            <div>Most buy</div>
-            <div>Graph buy</div>
+            <DashboardTopBuy/>
+            <TypeBuyChart/>
+            <SalesChart/>
         </StyledDashboardLayout>
     )
 }
