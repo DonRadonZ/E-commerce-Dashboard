@@ -34,4 +34,11 @@ func UserRoutes(app *fiber.App) {
 	app.Patch("/product/:productId",controllers.UpdateAProduct)
 
 	app.Delete("/product/:productId", controllers.DeleteAProduct)
+
+	//sales part
+	app.Get("/sales", controllers.GetAllSales)
+
+	app.Get("/sale/:SalesId", controllers.GetASales)
+
+	app.Post("/sale", controllers.AddSales)
 }

@@ -55,7 +55,6 @@ func AddProduct(c *fiber.Ctx) error {
 		Discount: product.Discount,
 		Amount_Sale: product.Amount_Sale,
 		Circulation: product.Circulation,
-
 	}
 
 	result, err := productCollection.InsertOne(ctx, newProduct)
