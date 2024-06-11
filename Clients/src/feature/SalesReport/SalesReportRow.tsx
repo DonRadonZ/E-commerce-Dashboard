@@ -9,14 +9,17 @@ const Product = styled.div`
     font-family: "Sarabun";
 `;
 
-const Category = styled.div`
-    font-family: "Sarabun";
-    font-weight: 500;
-`
+const RegisterDate = styled.div`
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-grey-600);
+  font-family: "Sarabun";
+`;
 
 const Amount = styled.div`
     font-family: "Sarabun";
     font-weight: 500;
+    margin-left: 40px;
 `
 
 const Circulation = styled.div`
@@ -24,36 +27,33 @@ const Circulation = styled.div`
     font-weight: 500;
 `
 
-interface ProductProps {
-    products: {
+interface SaleProps {
+    sales: {
       id: string;
-      product_photo: string;
+      date: string;
       product_name: string;
-      product_category: string;
-      amount_sale: number;
-      circulation: number;
+      amount: number;
+      price: number;
     };
   }
 
-export default function SalesReportRow({ products }: ProductProps) {
+export default function SalesReportRow({ sales }: SaleProps) {
 
     const {
-        // product_photo,
+        date,
         product_name,
-        product_category,
-        amount_sale,
-        circulation
-    } = products
+        amount,
+        price
+    } = sales
 
     
 
   return (
     <Table.Row>
-        {/* <Img src={product_photo} alt={product_name}/> */}
+        <RegisterDate>{date}</RegisterDate>
         <Product>{product_name}</Product>
-        <Category>{product_category}</Category>
-        <Amount>{amount_sale}</Amount>
-        <Circulation>{formatCurrency(circulation)}</Circulation>
+        <Amount>{amount}</Amount>
+        <Circulation>{formatCurrency(price)}</Circulation>
         
     </Table.Row>
   )

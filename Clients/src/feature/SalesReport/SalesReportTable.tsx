@@ -1,38 +1,44 @@
 import Table from '../../Components/UI/Table/Table'
 import Spinner from '../../Components/UI/Spinner/Spinner';
-import useProducts from '../../hooks/Products/useProducts';
-import SalesReportRow from './SalesReportRow';
 
-interface IProduct {
+import SalesReportRow from './SalesReportRow';
+import Pagination from '../../Components/utils/Pagination';
+import useSalesReports from '../../hooks/SalesReports/useSalesReports';
+
+
+interface ISales {
   id: string;
-  product_photo: string;
+  date: string;
   product_name: string;
-  product_category: string;
-  amount_sale: number;
-    circulation: number;
+  amount: number;
+  price: number;
 }
 
 
-export default function SalesReportTable() {
-  const {isPending, data} = useProducts();
+
+
+export default function SalesReportTable({count}) {
+  const {isPending, data} = useSalesReports();
 
     if(isPending) return <Spinner/>
     
 
-    const products: IProduct[] = data?.products || [];
+    const sales: ISales[] = data?.sales || [];
 
   return (
-    <Table columns=" 2.4fr 2fr 1.2fr 1.4fr 1.2fr ">
+    <Table columns=" 2fr 2fr 2fr 1.4fr">
         <Table.Header>
-            {/* <div></div> */}
+            <div>Date</div>
             <div>Menu</div>
-            <div>Category</div>
             <div>Amount Sale</div>
-            <div>Circulation</div>
+            <div>Price</div>
         </Table.Header>
-          {products.map((product: IProduct) => 
-                (<SalesReportRow products={product} key={product.id}/>)
+          {sales.map((sale) => 
+                (<SalesReportRow sales={sale} key={sale.id}/>)
                 )}
+        <Table.Footer>
+            <Pagination count={count}/>
+        </Table.Footer>  
     </Table>
   )
 }

@@ -24,7 +24,7 @@ export default function ProductTable() {
     const products: IProduct[] = data?.products || [];
 
     return (
-        <Table columns="1.2fr 1.8fr 2.2fr 1fr 1fr ">
+        <Table columns="2.4fr 2.2fr 2.2fr 1fr 1fr ">
             <Table.Header>
                 {/* <div></div> */}
                 <div>Menu</div>
