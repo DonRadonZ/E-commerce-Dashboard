@@ -1,6 +1,7 @@
 import Heading from "../Components/layout/Header/Heading";
 import Row from "../Components/layout/Row";
 import ProductTable from "../feature/Products/ProductTable";
+import AddProduct from '../feature/Products/AddProduct';
 
 
 export default function Product() {
@@ -11,6 +12,7 @@ export default function Product() {
     </Row>
     <Row>
    <ProductTable/>
+   <AddProduct/>
    </Row>
    </>
   )
