@@ -10,10 +10,10 @@ export default function Customers() {
     <>
       <Row type="horizontal">
         <Heading as="h1">All Customers</Heading>
-        <Input/>
+        <Input placeholder='search...'/>
     </Row>
     <Row>
-      <CustomerTable count={undefined}/>
+      <CustomerTable/>
     </Row>
     </>
   )
