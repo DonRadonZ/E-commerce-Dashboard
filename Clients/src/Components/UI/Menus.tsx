@@ -151,7 +151,7 @@ function List({ id, children }: ListProps) {
 
 type ButtonProps = {
     children: ReactNode;
-    icon: string;
+    icon: any;
     onClick?: () => void;
 }
 
@@ -172,5 +172,5 @@ function Button({ children, icon, onClick }: ButtonProps) {
 
 Menus.Menu = Menu;
 Menus.Toggle = Toggle;
-Menus.Lsit = List;
+Menus.List = List;
 Menus.Button = Button;
