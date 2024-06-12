@@ -11,12 +11,12 @@ interface ICustomer {
   email: string,
   phone: string,
   purchase_amount: number
-  id: string;
+  customer_id: string;
 }
 
 
-export default function CustomerTable({count}) {
-  const {isPending, data} = useCustomers();
+export default function CustomerTable() {
+  const {isPending, data, count} = useCustomers();
 
   if(isPending) return <Spinner/>
 
@@ -32,9 +32,11 @@ export default function CustomerTable({count}) {
           <div>Total Buy</div>
           <div>Member</div>
         </Table.Header>
-        {customers.map((customer) => 
-                (<CustomerRow customers={customer} key={customer.id}/>)
-                )}
+        <Table.Body
+        data={customers}
+        render= {(customer) => 
+          (<CustomerRow customers={customer} key={customer.customer_id}/>)}
+        />
         <Table.Footer>
             <Pagination count={count}/>
         </Table.Footer>
