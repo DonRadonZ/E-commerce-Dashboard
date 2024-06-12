@@ -17,8 +17,8 @@ interface ISales {
 
 
 
-export default function SalesReportTable({count}) {
-  const {isPending, data} = useSalesReports();
+export default function SalesReportTable() {
+  const {isPending, data, count} = useSalesReports();
 
     if(isPending) return <Spinner/>
     
@@ -33,9 +33,12 @@ export default function SalesReportTable({count}) {
             <div>Amount Sale</div>
             <div>Price</div>
         </Table.Header>
-          {sales.map((sale) => 
-                (<SalesReportRow sales={sale} key={sale.id}/>)
-                )}
+        <Table.Body
+        data={sales}
+        render= {(sale) => 
+          (<SalesReportRow sales={sale} key={sale.id}/>)}
+        />
+          
         <Table.Footer>
             <Pagination count={count}/>
         </Table.Footer>  
