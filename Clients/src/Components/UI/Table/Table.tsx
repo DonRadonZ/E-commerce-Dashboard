@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext } from "react";
 import styled from "styled-components";
+import { PAGE_SIZE } from "../../../utils/constant";
 
 
 const StyledTable = styled.div`
@@ -66,7 +67,8 @@ const Empty = styled.p`
 `
 
 type TableContextProps = {
-    columns: string
+    columns: string;
+
 }
 
 const TableContext = createContext<TableContextProps>({columns:""});
@@ -116,10 +118,11 @@ type TableBodyProps = {
 };
 
 function Body({data, render}: TableBodyProps){
+    
 
     if (!data.length) return <Empty>No data to show at the moment</Empty>;
 
-    return <StyledBody>{data.map(render)}</StyledBody>
+    return <StyledBody>{data.slice(0,PAGE_SIZE).map(render)}</StyledBody>
 
 }
 
