@@ -1,16 +1,20 @@
 import axios from "axios";
 
+
 const ENDPOINT = "http://localhost:3000";
 
-export async function getInventories(){
-    const inventory = await axios.get(`${ENDPOINT}/inventories`)
-    .then((res) => res.data,
-    (error) => {
-        console.log(error);
-    });
-
+export async function getInventories({ page = 1, pageSize = 10 }){
+    const response = await axios.get(`${ENDPOINT}/inventories`,{
+        params: { page, pageSize }
+      })  
+    const inventory = response.data;
+    const count = inventory.length;
     
-    return {inventory}
+    
+    
+    
+    return {inventory, count};
+    
 }
 
 export async function editInventories(){
