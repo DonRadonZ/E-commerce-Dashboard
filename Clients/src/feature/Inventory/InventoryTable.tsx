@@ -10,16 +10,17 @@ interface IInventoryProp {
   inventory_name: string;
   category: string;
   remainder: number;
-  id: string;
+  inventory_id: string;
 }
 
-export default function CustomerTable({count}) {
-  const {isPending, data} = useInventory();
+
+
+export default function CustomerTable() {
+  const {isPending, data, count} = useInventory();
 
   if(isPending) return <Spinner/>
 
-  console.log(data)
-
+  
   const inventories: IInventoryProp[] = data?.inventory || [];
   
   return (
@@ -29,10 +30,12 @@ export default function CustomerTable({count}) {
             <div>Category</div>
             <div>Amount</div>
             <div>Status</div>
+            <div></div>
         </Table.Header>
-        {inventories.map((inventory) => 
-                (<InventoryRow inventory={inventory} key={inventory.id}/>)
-                )}
+        <Table.Body
+          data={inventories}
+          render = {(inventory) => <InventoryRow inventory={inventory} key={inventory.inventory_id}/>}
+        />
         <Table.Footer>
             <Pagination count={count}/>
         </Table.Footer>
