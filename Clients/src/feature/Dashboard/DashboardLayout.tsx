@@ -14,7 +14,7 @@ const StyledDashboardLayout = styled.div`
 `
 
 export default function DashboardLayout() {
-    const {data: products, isPending: isPending1} = useProducts();
+    const {isPending: isPending1} = useProducts();
 
     if(isPending1) return <Spinner/>
 
