@@ -113,12 +113,11 @@ function Row({children}:ChildrenProps){
 type TableBodyProps = {
     data: any;
     render: (tableData: any) => any;
-
-}
+};
 
 function Body({data, render}: TableBodyProps){
 
-    if (data.length) return <Empty>No data to show at the moment</Empty>;
+    if (!data.length) return <Empty>No data to show at the moment</Empty>;
 
     return <StyledBody>{data.map(render)}</StyledBody>
 
