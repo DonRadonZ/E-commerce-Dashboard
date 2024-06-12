@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
 import Heading from '../../Components/layout/Header/Heading';
-import { PieChart, ResponsiveContainer } from 'recharts';
+
 
 const StyledTopBuy = styled.div`
   /* Box */
@@ -21,11 +21,7 @@ export default function DashboardTopBuy() {
   return (
     <StyledTopBuy>
         <Heading as="h2">Top product Buy</Heading>
-        <ResponsiveContainer width="100%" height={240}>
-            <PieChart>
-                
-            </PieChart>
-        </ResponsiveContainer>
+        
     </StyledTopBuy>
   )
 }
