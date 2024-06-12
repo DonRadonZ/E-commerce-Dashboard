@@ -1,6 +1,9 @@
 import styled from "styled-components"
 import Table from "../../Components/UI/Table/Table";
 import { formatCurrency } from "../../utils/helper";
+import Modal from "../../Components/UI/Modal";
+import Menus from "../../Components/UI/Menus";
+import { HiPencil } from "react-icons/hi2";
 
 
 // const Img = styled.img`
@@ -48,6 +51,7 @@ interface ProductProps {
 export default function ProductRow({ products }: ProductProps) {
 
     const {
+        id,
         // product_photo,
         product_name,
         product_category,
@@ -67,6 +71,23 @@ export default function ProductRow({ products }: ProductProps) {
       <Discount>{formatCurrency(discount)}</Discount>) : (
         <span>&mdash;</span>
         )}
+      <div>
+       <Modal>
+          <Menus.Menu>
+            <Menus.Menu>
+              <Menus.Toggle id={id}/>
+                <Menus.List id={id}>
+                  <Menus.Button
+                  icon={<HiPencil />}
+                  >
+                    Edit
+                  </Menus.Button>
+                </Menus.List>
+
+            </Menus.Menu>
+          </Menus.Menu>
+       </Modal>
+      </div>
     </Table.Row>
   )
 }
